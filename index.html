@@ -1,23 +1,379 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Home</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <!--
-      Need a visual blank slate?
-      Remove all code in `styles.css`!
-    -->
-    <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="script.js"></script>
-  </head>
-  <body>
-    <nav>
-      <a href="/" aria-current="page">Home</a>
-      <a href="/page2.html">Other page</a>
-    </nav>
-    <main>
-      <h1>Home page</h1>
-    </main>
-  </body>
-</html>
+
+  <!-- Schema.org Organization + FAQPage 마크업(JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MedicalOrganization",
+    "name": "치과보험 정보센터",
+    "url": "https://domain.com/dental-insurance-guide",
+    "logo": "https://domain.com/logo.png",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+82-10-1234-5678",
+      "contactType": "customer service"
+    },
+    "description": "2026년 최신 치과 레진 보험 정보를 제공하는 전문 정보 센터입니다. 가입 전 필수 체크리스트, 상품별 비교 분석, 비용 절감 팁 등을 안내합니다."
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Q1: 2026년 기준 레진 치료의 평균 비용은 얼마인가요?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A1: 2026년 현재 레진 치료(비급여) 비용은 치과와 위치에 따라 크게 달라지지만, 일반적으로 치아 1개당 7만 원에서 20만 원 사이로 형성되어 있습니다. 넓은 부위의 충치나 인레이로 넘어가는 경우 20만 원 이상을 예상해야 하며, 비급여 항목이므로 치과마다 가격 차이가 크다는 점을 유의해야 합니다."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Q2: 치과 레진 보험 가입 시 가장 중요한 고려 사항은 무엇인가요?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A2: 치과 보험 가입 시 면책 기간(보장 시작 전 대기 기간)과 감액 기간(보장 금액의 일부만 지급되는 기간)을 반드시 확인해야 합니다. 또한 보장 횟수 제한(연간 3개 등)이나 보장 금액 한도(1개당 5만 원 ~ 10만 원)를 꼼꼼히 비교해야 합니다. 현재 치료가 필요한 치아가 있다면 가입이 거절될 수 있으므로, 건강할 때 미리 가입하는 것이 중요합니다."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Q3: 레진 보험과 실비보험(실손의료보험)은 어떤 차이가 있나요?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A3: 실비보험은 질병이나 상해로 인한 치료비를 보장하지만, 비급여 항목인 치과 치료(레진, 인레이, 크라운, 임플란트 등)는 보장 대상에서 제외되는 경우가 많습니다. 반면 치과 보험은 이러한 비급여 항목을 전문적으로 보장하기 위해 설계된 상품입니다. 따라서 레진이나 임플란트 치료비 부담을 줄이려면 치과 보험을 별도로 가입해야 합니다."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Google Fonts for professional look -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700;900&display=swap" rel="stylesheet">
+
+  <style>
+    /* Reset and Typography */
+    body { font-family: 'Noto Sans KR', sans-serif; margin:0; padding:0; background:#f0f4f8; color:#333; line-height:1.7; font-size:16px; }
+    header, section, footer { max-width:1000px; margin:20px auto; padding:20px; background:#ffffff; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.05); }
+    h1, h2, h3 { color:#0b3d91; margin-bottom:12px; }
+    h1 { font-size:2.8rem; text-align:center; padding-top:20px; }
+    h2 { font-size:2.2rem; border-bottom:3px solid #a3c4ff; padding-bottom:10px; margin-top:30px; }
+    h3 { font-size:1.6rem; color:#4285f4; margin-top:25px; }
+    p, li, dd, dt, table { font-size:1.05rem; line-height:1.8; color:#444; }
+    a { color:#0b3d91; text-decoration:none; transition: color 0.3s ease; }
+    a:hover { text-decoration:underline; color:#4285f4; }
+    .btn-cta {
+      display:inline-block;
+      padding:16px 32px;
+      background:#4285f4;
+      color:#fff;
+      font-weight:700;
+      border:none;
+      border-radius:30px;
+      box-shadow:0 6px 10px rgba(66, 133, 244, 0.3);
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      cursor:pointer;
+      text-decoration:none;
+      text-align:center;
+      font-size:1.1rem;
+      margin-top:20px;
+    }
+    .btn-cta:hover { background:#3367d6; transform:translateY(-2px); }
+    .btn-container { text-align:center; margin-top:30px; }
+
+    /* Tables */
+    table { width:100%; border-collapse: separate; border-spacing: 0; margin:20px 0; border-radius:8px; overflow:hidden; box-shadow:0 2px 8px rgba(0,0,0,0.05); }
+    th, td { border:1px solid #ccddee; padding:15px; text-align:left; }
+    th { background:#a3c4ff; color:#fff; font-weight:700; border-top-width:2px; }
+    tr:nth-child(even) { background-color: #f8faff; }
+
+    /* Navigation */
+    nav { background:#ffffff; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.05); max-width:1000px; margin:20px auto; padding:10px 20px; }
+    nav ul { list-style:none; padding:0; display:flex; flex-wrap: wrap; justify-content: space-around; }
+    nav li { margin:8px 15px; }
+    nav a { font-weight:700; color:#0b3d91; font-size:0.95rem; }
+
+    /* Highlight box */
+    .highlight-box { background:#e8f0fe; padding:20px; border-left:5px solid #4285f4; border-radius:8px; margin:25px 0; }
+    .highlight-box h3 { color:#0b3d91; margin-top:0; border:none; padding-bottom:0; font-size:1.4rem; }
+
+    /* FAQ section style */
+    dl { background:#f9f9f9; padding:20px; border-radius:8px; border:1px solid #eee; }
+    dt { font-weight:700; color:#0b3d91; font-size:1.1rem; margin-top:15px; cursor:pointer; padding-left:20px; position:relative; }
+    dt:before { content:"Q"; font-weight:900; color:#a3c4ff; font-size:1.2rem; position:absolute; left:0; top:0; }
+    dd { margin-left:20px; padding-left:10px; border-left:2px solid #a3c4ff; padding-top:10px; }
+    dd:before { content:"A"; font-weight:900; color:#a3c4ff; font-size:1.2rem; position:absolute; left:0; top:0; }
+
+    /* Anchor */
+    .anchor { display:block; position:relative; top:-100px; visibility:hidden; }
+
+    /* Responsive adjustments */
+    @media(max-width:768px) {
+      body { padding:10px; }
+      header, section, footer, nav { margin:10px auto; padding:15px; }
+      h1 { font-size:2.2rem; }
+      h2 { font-size:1.8rem; }
+      h3 { font-size:1.4rem; }
+      nav ul { flex-direction: column; }
+      nav li { margin:5px 0; text-align: center; }
+      .btn-cta { width:100%; padding:15px 0; font-size:1rem; }
+    }
+  </style>
+
+  <!-- Google Analytics Tracking Code Here -->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXXX-X"></script> -->
+  <!-- <script>...</script> -->
+</head>
+
+<body>
+  <header>
+    <h1>2026 치과 레진 보험 완벽 가이드</h1>
+    <p>치과 비급여 치료, 레진 비용 부담을 덜어주는 현명한 가입 전략</p>
+    <div class="btn-container">
+      <a class="btn-cta" href="#contact">전문가와 1:1 무료 상담 신청하기</a>
+    </div>
+  </header>
+
+  <nav aria-label="페이지 내 이동">
+    <ul>
+      <li><a href="#intro">레진 보험이란?</a></li>
+      <li><a href="#cost-analysis">2026 치료 비용 분석</a></li>
+      <li><a href="#benefits">장점 및 필요성</a></li>
+      <li><a href="#downsides">단점과 가입 주의사항</a></li>
+      <li><a href="#comparison">상품 비교 및 추천 순위</a></li>
+      <li><a href="#faq">자주 묻는 질문</a></li>
+      <li><a href="#checklist">필수 체크리스트</a></li>
+      <li><a href="#contact">1:1 맞춤 상담</a></li>
+    </ul>
+  </nav>
+
+  <section id="intro">
+    <span id="intro-anchor" class="anchor"></span>
+    <h2>레진 보험, 왜 2026년에 더 주목해야 할까요?</h2>
+    <p>치과 치료는 국민건강보험이 적용되는 급여 항목과 적용되지 않는 비급여 항목으로 나뉩니다. 레진(Resin) 치료는 심미적인 장점과 우수한 치료 효과에도 불구하고, 만 12세 이하 어린이 충치 치료를 제외한 대부분의 경우 비급여 항목으로 분류되어 환자 본인이 치료 비용 전액을 부담해야 합니다. 이로 인해 충치 하나당 수십만 원에 달하는 <strong style="color:red;">레진 비용</strong> 때문에 많은 분들이 치료를 미루거나 값싼 재료를 선택하는 경우가 많습니다.</p>
+    <p>특히 2026년 들어 물가 상승과 재료비 인상으로 치과 비급여 진료비가 더욱 상승하고 있습니다. 이러한 배경 속에서 <strong style="color:red;">치과레진보험</strong>은 치과 치료의 고액 비용 부담을 효과적으로 줄여주는 필수 대비책으로 부상하고 있습니다. <strong style="color:red;">레진 보험</strong>은 충치 치료 시 발생하는 <strong style="color:red;">레진 가격</strong>, <strong style="color:red;">인레이 비용</strong> 등의 보존 치료뿐만 아니라 임플란트, 크라운 등 고가 보철 치료까지 폭넓게 보장하는 치아보험 상품을 의미합니다.</p>
+    <h3>레진 치료, 일반 의료실비보험으로는 보장받을 수 있을까요?</h3>
+    <p>결론부터 말씀드리자면, 일반 실비보험(실손의료보험)으로는 레진 치료를 보장받을 수 없습니다. 실비보험은 질병이나 상해로 인한 치료비를 보장하지만, 비급여 치과 치료는 보장 범위에서 명시적으로 제외됩니다. 따라서 레진, 인레이, 크라운, 임플란트와 같은 비급여 치료의 <strong style="color:red;">치료비용</strong>을 보장받기 위해서는 반드시 <strong style="color:red;">치과 보험</strong>을 별도로 가입해야 합니다.</p>
+    <p class="highlight-box"><strong>참고: 만 12세 이하 어린이 레진 보험 적용 특례</strong><br />만 12세 이하 아동의 영구치 충치 치료는 2019년부터 국민건강보험이 적용됩니다. 따라서 해당 연령대는 개당 약 2만 5천 원 내외의 <strong style="color:red;">저렴한 비용</strong>으로 레진 치료가 가능합니다. 그러나 성인의 레진 치료는 여전히 비급여 항목이므로 성인 치아 건강을 위한 <strong style="color:red;">치과보험 가입</strong>은 필수입니다.</p>
+  </section>
+
+  <section id="cost-analysis">
+    <span id="cost-analysis-anchor" class="anchor"></span>
+    <h2>2026 치과 비급여 레진 치료 비용 분석 (평균 금액 및 견적)</h2>
+    <p>치과 치료는 <strong style="color:red;">비용</strong>이 비싸다는 인식이 강합니다. 특히 <strong style="color:red;">레진</strong>은 비급여 항목이므로, 치과마다 <strong style="color:red;">가격</strong> 차이가 매우 큽니다. 충치 범위, 충치 진행 단계에 따라 치료 방법이 달라지며, <strong style="color:red;">예상 비용</strong>도 크게 변동합니다. <strong style="color:red;">치과보험료</strong>는 이러한 비급여 항목에 대한 <strong style="color:red;">견적</strong>을 미리 예측하고 대비하기 위한 수단입니다.</p>
+
+    <h3>충치 진행 단계별 2026년 예상 치료 비용 (레진, 인레이, 크라운)</h3>
+    <p>2026년 현재 전국 치과의 <strong style="color:red;">평균</strong> 비급여 치료 <strong style="color:red;">금액</strong>을 바탕으로 치료 단계별 <strong style="color:red;">가격</strong>대를 정리했습니다. 이 <strong style="color:red;">비용</strong>은 참고용이며, 실제 <strong style="color:red;">견적</strong>은 치과의원 규모, 지역(서울, 경기 vs. 지방), 의사 숙련도 등에 따라 차이가 발생할 수 있습니다.</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>치료 단계</th>
+          <th>치료 방법</th>
+          <th>2026년 예상 평균 비용 (치아 1개 기준)</th>
+          <th>치아보험 보장 여부</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1단계 충치 (초기)</td>
+          <td>레진 수복 (직접 충전)</td>
+          <td><strong>₩70,000 ~ ₩200,000</strong> (충치 범위에 따라 변동)</td>
+          <td>치아보험 보존 치료 특약으로 보장 가능 (특약에 따라 5만~10만 원 지급)</td>
+        </tr>
+        <tr>
+          <td>2단계 충치 (진행)</td>
+          <td>인레이/온레이 (간접 충전)</td>
+          <td><strong>₩200,000 ~ ₩500,000</strong> (재료: 레진, 세라믹, 골드 등에 따라 변동)</td>
+          <td>치아보험 보존 치료 특약으로 보장 가능 (특약에 따라 10만~20만 원 지급)</td>
+        </tr>
+        <tr>
+          <td>3단계 충치 (심각)</td>
+          <td>신경 치료 + 크라운 (전체 씌우기)</td>
+          <td><strong>₩400,000 ~ ₩800,000+</strong> (재료: PFM, 지르코니아, 골드 등에 따라 변동)</td>
+          <td>치아보험 보존 치료 특약으로 보장 가능 (특약에 따라 20만~40만 원 지급)</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="highlight-box"><strong>참고: 치과 비급여 정보 포털</strong><br />레진 인레이와 같은 비급여 치료 <strong style="color:red;">가격</strong>의 전국 <strong style="color:red;">평균</strong>은 국민건강보험공단 비급여 정보 포털에서 확인할 수 있습니다. 2025년 기준 레진 인레이의 전국 <strong style="color:red;">평균 가격</strong>은 290,898원이었으며, 최고 <strong style="color:red;">가격</strong>은 750,000원에 달했습니다. 지역별, 치과별 <strong style="color:red;">비용</strong> 차이가 크므로, <strong style="color:red;">치과 보험</strong> 가입으로 이러한 부담을 줄이는 것이 현명합니다.</p>
+
+    <div class="btn-container">
+      <a class="btn-cta" href="#contact">내 치아 상태에 맞는 보험 견적 문의하기</a>
+    </div>
+  </section>
+
+  <section id="benefits">
+    <span id="benefits-anchor" class="anchor"></span>
+    <h2>치과 레진 보험의 장점 (Pros)과 필요성</h2>
+    <p>치과 보험을 가입하는 <strong style="color:red;">장점</strong>은 명확합니다. 치과 치료가 필요한 시점에 발생하는 고액의 <strong style="color:red;">비용</strong>을 보장받아 <strong style="color:red;">경제적 부담</strong>을 줄여줍니다. 특히 <strong style="color:red;">레진 보험</strong>은 단순 충치 치료 외에도 임플란트나 크라운 등 보철 치료까지 폭넓게 보장하는 경우가 많아, 노년층에게도 필수적인 대비책이 됩니다.</p>
+
+    <h3>1. 비급여 레진, 인레이 치료비 부담 대폭 경감</h3>
+    <p>레진 충전은 치아 색상과 유사하여 심미성이 뛰어나지만, 비용 부담이 높습니다. <strong style="color:red;">레진 보험</strong>은 이러한 비급여 레진 치료에 대해 1개당 정액 보장(예: 5만 원~10만 원)을 제공합니다. 여러 개의 충치를 동시에 치료해야 하는 경우, <strong style="color:red;">치과보험 가입</strong> 여부에 따라 <strong style="color:red;">총 예상 금액</strong>이 크게 달라집니다.</p>
+
+    <h3>2. 고가 보철 치료 (임플란트, 크라운) 대비</h3>
+    <p>치아 보험은 단순 레진 치료뿐만 아니라, 충치 악화로 인해 필요한 신경 치료 및 <strong style="color:red;">크라운</strong>, <strong style="color:red;">임플란트</strong>, <strong style="color:red;">틀니</strong> 치료까지 보장합니다. 임플란트 1개당 <strong style="color:red;">평균</strong> 80만 원 이상의 <strong style="color:red;">비용</strong>이 발생하므로, <strong style="color:red;">치아보험 추천</strong> 상품은 이러한 고액 치료비에 대한 <strong style="color:red;">보장</strong>을 핵심으로 합니다.</p>
+
+    <h3>3. 정기 검진 및 예방 치료 보장 (스케일링 등)</h3>
+    <p>일부 <strong style="color:red;">치과보험</strong> 상품은 스케일링, 파노라마 사진 촬영 등 예방 및 진단 목적의 치료도 보장합니다. 정기적인 검진을 통해 작은 충치를 초기에 발견하여 <strong style="color:red;">저렴한 비용</strong>으로 치료할 수 있도록 돕습니다. <strong style="color:red;">치아보험 가입</strong>은 결과적으로 치아 건강 관리의 연속성을 높여주는 <strong style="color:red;">장점</strong>이 있습니다.</p>
+  </section>
+
+  <section id="downsides">
+    <span id="downsides-anchor" class="anchor"></span>
+    <h2>치과 레진 보험의 단점 (Cons) 및 가입 시 주의사항</h2>
+    <p><strong style="color:red;">치과보험</strong>은 <strong style="color:red;">장점</strong>만큼 <strong style="color:red;">단점</strong>도 명확하므로 신중한 접근이 필요합니다. 무턱대고 <strong style="color:red;">싼곳</strong>이나 <strong style="color:red;">저렴한 보험료</strong>만 보고 가입했다가는 보장을 받지 못하거나, 낸 보험료보다 받는 <strong style="color:red;">금액</strong>이 적을 수 있습니다.</p>
+
+    <h3>1. 면책 기간 및 감액 기간 확인 (가장 중요한 차이점)</h3>
+    <p><strong style="color:red;">치과보험</strong>은 가입 즉시 보장이 시작되지 않습니다. 일정 기간 동안은 보장이 제외되는 <strong style="color:red;">면책 기간</strong>(보통 90일)이 있으며, 그 이후 1~2년 동안은 보장 <strong style="color:red;">금액</strong>의 50%만 지급하는 <strong style="color:red;">감액 기간</strong>이 존재합니다. 따라서 치과 치료가 시급한 상황에서 급히 <strong style="color:red;">치아보험 가입</strong>을 하더라도 <strong style="color:red;">보장</strong>을 받을 수 없습니다. 보험은 미래의 위험에 대비하는 상품이므로, 치아 상태가 건강할 때 미리 가입해야 <strong style="color:red;">장점</strong>을 누릴 수 있습니다.</p>
+
+    <h3>2. 진단형 vs. 비진단형, 갱신형 vs. 비갱신형 선택의 차이점</h3>
+    <p><strong style="color:red;">치과보험</strong>은 크게 진단형과 비진단형으로 나뉩니다. 진단형은 가입 시 치과 검진을 받아야 하며 보험료가 비싸지만, 보장 한도가 높습니다. 비진단형은 검진 없이 간편하게 <strong style="color:red;">가입</strong>할 수 있으며, <strong style="color:red;">보험료</strong>가 <strong style="color:red;">저렴</strong>하지만 보장 한도가 상대적으로 낮습니다. 또한 <strong style="color:red;">갱신형</strong>은 초기 <strong style="color:red;">보험료</strong>가 <strong style="color:red;">싼곳</strong>이 많지만, 갱신 시점마다 <strong style="color:red;">보험료</strong>가 인상될 수 있으므로 장기적인 관점에서 <strong style="color:red;">장단점</strong>을 고려해야 합니다.</p>
+
+    <h3>3. 이미 치료했거나 진단받은 치아는 보장 불가</h3>
+    <p><strong style="color:red;">치아보험 가입</strong> 전에 이미 충치로 진단받거나 치료받은 치아는 보장이 불가능합니다. 보험은 이미 발생한 손해를 보상하지 않기 때문입니다. 따라서 가입 시 보험사에 치아 상태를 정확하게 고지해야 합니다. 고지 의무 위반 시 추후 <strong style="color:red;">보험금</strong> 지급이 거절될 수 있습니다.</p>
+  </section>
+
+  <section id="comparison">
+    <span id="comparison-anchor" class="anchor"></span>
+    <h2>2026 치과 레진 보험 추천 순위 및 상품 비교 분석</h2>
+    <p>수많은 <strong style="color:red;">치과보험</strong> 상품 중에서 나에게 맞는 <strong style="color:red;">치아보험 추천</strong> 상품을 찾는 것은 복잡합니다. <strong style="color:red;">치과보험 순위</strong>는 개인의 연령, 치아 상태, <strong style="color:red;">가입</strong> 목적에 따라 달라지기 때문입니다. 아래 표는 <strong style="color:red;">치과레진보험</strong> 가입 시 필수적으로 <strong style="color:red;">비교</strong>해야 하는 주요 항목들을 요약한 것입니다.</p>
+
+    <h3>보험사별 치과보험 상품 비교 (가상 시뮬레이션: 30대 남성 기준)</h3>
+    <p>다음은 2026년 가상 시나리오를 바탕으로 주요 보험사의 <strong style="color:red;">치아보험 비교</strong> <strong style="color:red;">견적</strong>을 보여줍니다. <strong style="color:red;">보험료 평균</strong>과 보장 <strong style="color:red;">금액</strong>을 꼼꼼히 <strong style="color:red;">비교</strong>하여 자신에게 맞는 <strong style="color:red;">추천</strong> 상품을 찾아보세요.</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>구분</th>
+          <th>S사 (진단형)</th>
+          <th>K사 (비진단형)</th>
+          <th>D사 (어린이 특화)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>월 보험료 (예상)</strong></td>
+          <td>₩35,000 ~ ₩45,000</td>
+          <td>₩25,000 ~ ₩35,000</td>
+          <td>₩15,000 ~ ₩20,000</td>
+        </tr>
+        <tr>
+          <td><strong>레진 보장 금액 (1개당)</strong></td>
+          <td><strong>₩100,000</strong> (연간 3개 한도)</td>
+          <td><strong>₩70,000</strong> (연간 3개 한도)</td>
+          <td><strong>₩50,000</strong> (연간 5개 한도)</td>
+        </tr>
+        <tr>
+          <td><strong>크라운 보장 금액 (1개당)</strong></td>
+          <td><strong>₩400,000</strong> (연간 3개 한도)</td>
+          <td><strong>₩300,000</strong> (연간 3개 한도)</td>
+          <td><strong>₩200,000</strong> (연간 3개 한도)</td>
+        </tr>
+        <tr>
+          <td><strong>임플란트 보장 금액 (1개당)</strong></td>
+          <td><strong>₩1,500,000</strong> (연간 3개 한도)</td>
+          <td><strong>₩1,000,000</strong> (연간 3개 한도)</td>
+          <td>X (어린이 보장 특화로 임플란트 보장 없음)</td>
+        </tr>
+        <tr>
+          <td><strong>면책/감액 기간 (레진/크라운 기준)</strong></td>
+          <td>면책 90일 / 감액 1년</td>
+          <td>면책 90일 / 감액 1년</td>
+          <td>면책 90일 / 감액 1년</td>
+        </tr>
+        <tr>
+          <td><strong>주요 특징</strong></td>
+          <td>높은 <strong style="color:red;">보장 금액</strong>, 보철 치료 <strong style="color:red;">강화</strong></td>
+          <td><strong style="color:red;">저렴한</strong> <strong style="color:red;">보험료</strong>, 간편 <strong style="color:red;">가입</strong></td>
+          <td><strong style="color:red;">레진</strong> 보장 횟수가 많음, <strong style="color:red;">어린이</strong> 치과 치료 특화</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p class="highlight-box"><strong>내돈내산 후기 기반 치아보험 선택 팁</strong><br />많은 <strong style="color:red;">내돈내산 후기</strong>를 보면 <strong style="color:red;">레진 보험</strong>을 선택할 때 <strong style="color:red;">보험료</strong>가 <strong style="color:red;">저렴한</strong> 상품을 우선적으로 고려하지만, 실제로 보장이 필요한 시점에 <strong style="color:red;">레진</strong>이나 <strong style="color:red;">크라운</strong> 보장 한도가 너무 적어 실망하는 경우가 많습니다. <strong style="color:red;">치과 보험</strong>의 <strong style="color:red;">장점</strong>을 최대한 활용하려면 보장 <strong style="color:red;">금액</strong>이 충분한 상품을 선택하는 것이 중요합니다. 특히 <strong style="color:red;">레진 치료</strong>는 한 번에 여러 개를 진행할 수 있으므로, 연간 <strong style="color:red;">보장 횟수</strong> 제한도 <strong style="color:red;">비교</strong>해야 합니다.</p>
+  </section>
+
+  <section id="faq">
+    <span id="faq-anchor" class="anchor"></span>
+    <h2>자주 묻는 질문 (FAQ)</h2>
+    <dl>
+      <dt>Q1: 치과 레진 보험 가입 시 가장 중요한 고려 사항은 무엇인가요?</dt>
+      <dd>A: <strong style="color:red;">면책 기간</strong>과 <strong style="color:red;">감액 기간</strong>을 반드시 확인해야 합니다. 또한 <strong style="color:red;">레진</strong>, 인레이, 크라운, 임플란트 등 각 항목의 보장 <strong style="color:red;">금액</strong>과 연간 보장 횟수를 <strong style="color:red;">비교</strong>해야 합니다. <strong style="color:red;">저렴한 보험료</strong>만 보고 가입했다가는 보장이 충분하지 않아 <strong style="color:red;">단점</strong>을 경험할 수 있습니다.</dd>
+
+      <dt>Q2: 이미 치료한 치아나 진단받은 충치도 보장받을 수 있나요?</dt>
+      <dd>A: 아니요. <strong style="color:red;">치과보험 가입</strong> 시점 이전에 이미 충치 치료를 받았거나, 치과 의사에게 충치 진단을 받은 치아는 보장이 불가능합니다. 보험은 미래에 발생할 수 있는 위험을 대비하는 상품이므로, 현재 문제가 있는 치아에 대해서는 보장이 제외됩니다. 따라서 건강할 때 <strong style="color:red;">가입</strong>하는 것이 <strong style="color:red;">장점</strong>을 극대화하는 방법입니다.</dd>
+
+      <dt>Q3: 레진 인레이와 레진 충전의 차이점은 무엇인가요?</dt>
+      <dd>A: <strong style="color:red;">레진 충전</strong>(Direct Resin Filling)은 충치 부위가 작을 때 치과에서 직접 레진 재료를 채워 넣는 방식입니다. <strong style="color:red;">레진 인레이</strong>(Resin Inlay)는 충치 부위가 넓어 치아 본을 떠서 기공소에서 제작한 보철물을 접착하는 방식입니다. 인레이가 <strong style="color:red;">레진 충전</strong>보다 정교하고 내구성이 뛰어나지만, <strong style="color:red;">치료 비용</strong>이 더 비쌉니다. <strong style="color:red;">치과보험</strong>에서는 두 가지 모두 보존 치료로 분류되지만, 보장 <strong style="color:red;">금액</strong>에 <strong style="color:red;">차이점</strong>이 있을 수 있습니다.</dd>
+
+      <dt>Q4: 치과보험료가 저렴한 상품을 찾는 방법이 있나요?</dt>
+      <dd>A: <strong style="color:red;">저렴한 치과 보험</strong>을 찾으려면 <strong style="color:red;">비갱신형</strong>보다는 <strong style="color:red;">갱신형</strong>을 선택하거나, 보장 한도를 낮추는 방법이 있습니다. 하지만 <strong style="color:red;">저렴한곳</strong>만 찾다가는 보장이 충분하지 않아 <strong style="color:red;">단점</strong>을 경험할 수 있으므로, 보장 <strong style="color:red;">금액</strong>과 <strong style="color:red;">보험료</strong>의 균형을 맞추는 것이 중요합니다. 여러 <strong style="color:red;">치과보험 순위</strong> <strong style="color:red;">비교</strong> 사이트를 활용해 <strong style="color:red;">견적</strong>을 받아보는 것도 좋은 방법입니다.</dd>
+    </dl>
+  </section>
+
+  <section id="checklist">
+    <span id="checklist-anchor" class="anchor"></span>
+    <h2>2026 치과보험 가입 전 필수 체크리스트</h2>
+    <p>치아 보험을 선택할 때 <strong style="color:red;">내돈내산 후기</strong>나 <strong style="color:red;">추천</strong> 정보만 믿지 말고, 다음의 <strong style="color:red;">체크리스트</strong>를 통해 꼼꼼하게 <strong style="color:red;">비교</strong>하세요. 현명한 <strong style="color:red;">가입</strong>은 미래의 <strong style="color:red;">치료 비용</strong>을 크게 절감해 줄 수 있습니다.</p>
+
+    <div class="highlight-box">
+      <h3>가입 전 확인 사항 (핵심 요약)</h3>
+      <ol>
+        <li><strong>보험 유형 결정:</strong> <strong style="color:red;">진단형</strong> vs. <strong style="color:red;">비진단형</strong> 중 어떤 <strong style="color:red;">장단점</strong>이 나에게 맞는지 판단합니다. (치아 상태가 좋으면 진단형, 간편 가입을 원하면 비진단형)</li>
+        <li><strong>보장 항목 확인:</strong> <strong style="color:red;">레진</strong>, 인레이, 크라운, 임플란트 보장 <strong style="color:red;">금액</strong>을 <strong style="color:red;">비교</strong>합니다. 특히 <strong style="color:red;">레진</strong> 보장 <strong style="color:red;">금액</strong>이 충분한지 확인하세요.</li>
+        <li><strong>면책/감액 기간:</strong> <strong style="color:red;">가입</strong> 후 언제부터 100% 보장되는지 확인합니다. (보통 2년 이후)</li>
+        <li><strong>연간 보장 한도:</strong> <strong style="color:red;">레진</strong>, 임플란트 등 치료 항목별 연간 보장 횟수 또는 <strong style="color:red;">금액</strong> 한도를 체크합니다.</li>
+        <li><strong>보험료 비교:</strong> 여러 보험사의 <strong style="color:red;">보험료</strong> <strong style="color:red;">평균</strong> <strong style="color:red;">견적</strong>을 받아보고, <strong style="color:red;">저렴한곳</strong>보다는 보장 대비 합리적인 곳을 선택합니다.</li>
+        <li><strong>고지 의무 준수:</strong> <strong style="color:red;">가입</strong> 전 치과 치료 이력(진단, 치료, 발치 등)을 정확하게 알립니다.</li>
+      </ol>
+    </div>
+
+    <p>치아 보험은 <strong style="color:red;">가입</strong> 시기가 매우 중요합니다. 만약 <strong style="color:red;">가입</strong>을 망설이고 있다면, 지금 바로 전문가와 상담하여 내 치아 상태에 맞는 <strong style="color:red;">추천</strong> 상품을 찾아보세요.</p>
+  </section>
+
+  <section id="external-links">
+    <span id="external-links-anchor" class="anchor"></span>
+    <h2>신뢰할 수 있는 외부 정보 출처</h2>
+    <p>치과 보험 관련 정보는 신뢰성 있는 공공기관이나 전문가의 자료를 참고하는 것이 중요합니다. 아래는 치과 치료 및 보험에 대한 객관적인 정보를 얻을 수 있는 사이트입니다.</p>
+    <ul>
+      <li><a href="https://www.nhis.or.kr/" target="_blank">국민건강보험공단:</a> 비급여 진료비 항목별 가격 정보를 제공합니다.</li>
+      <li><a href="https://www.hira.or.kr/" target="_blank">건강보험심사평가원:</a> 치과 보철 치료 등 급여/비급여 기준 정보를 제공합니다.</li>
+      <li><a href="https://namu.wiki/w/%EC%B9%98%EA%B3%BC%EB%B3%B4%ED%97%98" target="_blank">나무위키 - 치과 보험:</a> 치과 보험의 역사, 보장 내용, <strong style="color:red;">장단점</strong> 등을 상세히 설명합니다.</li>
+      <li><a href="https://www.fsc.go.kr/" target="_blank">금융위원회/금융감독원:</a> 보험 상품 관련 규정 및 소비자 보호 정보를 제공합니다.</li>
+      <li><a href="https://www.korea.kr/policy/issuePlusView.do?newsId=148876127" target="_blank">대한민국 정책브리핑:</a> 만 12세 이하 <strong style="color:red;">레진 보험</strong> 적용 등 정부 정책 정보를 제공합니다.</li>
+    </ul>
+  </section>
+
+  <section id="contact">
+    <span id="contact-anchor" class="anchor"></span>
+    <h2>1:1 맞춤 치과 보험 견적 상담 요청</h2>
+    <p>내 치아 상태에 맞는 <strong style="color:red;">치과레진보험</strong> 상품을 찾으시나요? 전문가와 1:1 상담을 통해 <strong style="color:red;">레진 비용</strong>, 임플란트 <strong style="color:red;">보장 금액</strong> 등 궁금한 점을 해결하고, <strong style="color:red;">추천</strong> 상품을 <strong style="color:red;">비교</strong>해 보세요. <strong style="color:red;">견적</strong>은 무료입니다.</p>
+    <form action="/submit" method="POST" style="max-width:600px; margin:auto;">
+      <label for="name">이름<span style="color:red;">*</span></label><br />
+      <input type="text" id="name" name="name" required style="width:100%; padding:10px; margin-bottom:15px; border:1px solid #ccc; border-radius:4px;" />
+
+      <label for="phone">연락처<span style="color:red;">*</span></label><br />
+      <input type="tel" id="phone" name="phone" required placeholder="010-1234-5678" pattern="[0-9\-]+" style="width:100%; padding:10px; margin-bottom:15px; border:1px solid #ccc; border-radius:4px;" />
+
+      <label for="birthdate">생년월일 (예: 19801231)<span style="color:red;">*</span></label><br />
+      <input type="text" id="birthdate" name="birthdate" required placeholder="예: 19801231" pattern="[0-9]{8}" style="width:100%; padding:10px; margin-bottom:15px; border:1px solid #ccc; border-radius:4px;" />
+
+      <label for="move-type">치아보험 가입 목적<span style="color:red;">*</span></label><br />
+      <select id="move-type" name="move_type" required style="width:100%; padding:10px; margin-bottom:15px; border:1px solid #ccc; border-radius:4px;">
+        <option value="">선택하세요</option>
+        <option value="레진/충치 보장">레진/충치 치료 보장</option>
+        <option value="임플란트/크라운 보장">임플란트/크라운 등 보철 치료 보장</option>
+        <option value="어린이 치아보험">어린이 치아보험</option>
+        <option value="전체적인 치아 건강 대비">전체적인 치아 건강 대비</option>
+      </select>
+
+      <label for="message">추가 문의 사항 (현재 치아 상태, 궁금한 점 등)</label><br />
+      <textarea id="message" name="message" rows="4" style="width:100%; padding:10px; margin-bottom:15px; border:1px solid #ccc; border-radius:4px;" placeholder="예: 최근 충치 진단을 받았는데 가입이 가능한가요?"></textarea>
+
+      <div class="btn-container">
+        <button type="submit" class="btn-cta">무료 견적 상담 요청하기</button>
+      </div>
+    </form>
+  </section>
+
+
+  
